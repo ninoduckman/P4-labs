@@ -7,6 +7,9 @@
 class PaginaWeb : public Publicacion
 {
 public:
+	PaginaWeb();
+	PaginaWeb(const std::string &m_URL, const std::string &m_ContenidoExtraido);
+	~PaginaWeb();
 	virtual bool contienePalabra(std::string palabra) override;
 
 private:
