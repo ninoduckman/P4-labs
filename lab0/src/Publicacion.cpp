@@ -11,5 +11,9 @@ void Publicacion::AgregarInvestigador(Investigador* investigador) {
 }
 
 DTRefer Publicacion::getDT() {
-    return DTRefer(m_DOI, m_Titulo, m_Fecha);
+    std::set<std::string> autores;
+    for(Investigador* i : m_Investigadores) {
+        autores.insert(i->getNombre());
+    }
+    return DTRefer(m_DOI, m_Titulo, m_Fecha, autores);
 }

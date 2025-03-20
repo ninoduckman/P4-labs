@@ -12,6 +12,7 @@ public:
 	Investigador(const std::string &m_ORCID, const std::string &m_Nombre, const std::string &m_Institucion);
 	std::string toString();
 	std::set<std::string> listarPublicaciones(DTFecha desde, std::string palabra);
+	std::string getNombre();
 
 private:
 	std::string m_ORCID;

@@ -4,3 +4,7 @@ Investigador::Investigador(const std::string &m_ORCID, const std::string &m_Nomb
     : m_ORCID(m_ORCID), m_Nombre(m_Nombre), m_Institucion(m_Institucion) {}
 Investigador::~Investigador() {
 }
+
+std::string Investigador::getNombre() {
+    return m_Nombre;
+}
