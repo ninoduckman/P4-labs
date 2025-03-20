@@ -1,30 +1,28 @@
 #ifndef ARTICULOREVISTA_H
 #define ARTICULOREVISTA_H
 
-#include "Utils.h"
 #include "Publicacion.h"
+#include "Utils.h"
 
 class ArticuloRevista : public Publicacion
 {
-public:
-
+  public:
 	ArticuloRevista();
-	ArticuloRevista(const std::string &m_Revista, const std::string &m_Extracto);
+	ArticuloRevista(const std::string &m_Revista,
+	                const std::string &m_Extracto);
 	~ArticuloRevista();
 
-	std::string getRevista();
-	std::string getExtracto();
+	std::string getRevista() const;
+	std::string getExtracto() const;
 
-	void setRevista(const std::string &m_Revista);
-	void setExtracto(const std::string &m_Extracto);
+	void setRevista(const std::string &revista);
+	void setExtracto(const std::string &extracto);
 
 	virtual bool contienePalabra(const std::string &palabra) override;
 
-private:
-
+  private:
 	std::string m_Revista;
 	std::string m_Extracto;
-	
 };
 
 #endif
