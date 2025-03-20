@@ -11,7 +11,8 @@ public:
 	PaginaWeb(const std::string &m_URL, const std::string &m_ContenidoExtraido);
 	~PaginaWeb();
 	virtual bool contienePalabra(std::string palabra) override;
-
+	std::string getURL();
+	std::string getContenidoExtraido();
 private:
 	std::string m_URL;
 	std::string m_ContenidoExtraido;
