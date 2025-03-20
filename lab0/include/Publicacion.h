@@ -3,6 +3,8 @@
 
 #include "Utils.h"
 #include "DTFecha.h"
+#include "../include/DTRefer.h"
+#include "../include/Investigador.h"
 
 class DTRefer;
 class DTFecha;
@@ -15,6 +17,7 @@ public:
 	Publicacion(const std::string &m_DOI, const std::string &m_Titulo, DTFecha m_fecha);
 	~Publicacion();
 	DTRefer getDT();
+	void AgregarInvestigador(Investigador* investigador);
 	virtual bool contienePalabra(std::string palabra) = 0;
 
 private:
