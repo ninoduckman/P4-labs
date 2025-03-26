@@ -9,16 +9,11 @@ class ArticuloRevista : public Publicacion
   public:
   	// Constructores
 	ArticuloRevista();
-<<<<<<< Updated upstream
-	ArticuloRevista(const std::string &m_Revista,
-	                const std::string &m_Extracto);
-=======
 	ArticuloRevista(const std::string &doi, const std::string &titulo,
 	                const DTFecha &fecha, const std::string &revista,
 	                const std::string &extracto);
 
 	// Destructor				
->>>>>>> Stashed changes
 	~ArticuloRevista();
 
 	// Operación polimórfica
@@ -28,13 +23,9 @@ class ArticuloRevista : public Publicacion
 	void setRevista(const std::string &revista);
 	void setExtracto(const std::string &extracto);
 
-<<<<<<< Updated upstream
-	virtual bool contienePalabra(const std::string &palabra) override;
-=======
 	// setters
 	std::string getRevista() const;
 	std::string getExtracto() const;
->>>>>>> Stashed changes
 
   private:
 	std::string m_Revista;

@@ -16,14 +16,8 @@ class Libro : public Publicacion
 	// Destructor
 	~Libro();
 
-<<<<<<< Updated upstream
-	// Operación polimórfica (saque el virtual porque ya estaba en la
-	// Publicacion)
-	bool contienePalabra(const std::string &palabra) override;
-=======
 	// Operación polimórfica
 	bool contienePalabra(const std::string &palabra);
->>>>>>> Stashed changes
 
 	// getters
 	std::string getEditorial() const;
