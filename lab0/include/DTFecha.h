@@ -20,4 +20,12 @@ class DTFecha
 
 std::ostream &operator<<(std::ostream &os, const DTFecha &fecha);
 
+bool operator==(const DTFecha &otra) const;
+
+bool operator!=(const DTFecha &otra) const;
+
+bool operator<(const DTFecha &otra) const;
+
+bool operator>(const DTFecha &otra) const;
+
 #endif
