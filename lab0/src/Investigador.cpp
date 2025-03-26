@@ -1,4 +1,6 @@
 #include "../include/Investigador.h"
+#include "../include/DTRefer.h"
+#include "../include/Publicacion.h"
 
 Investigador::Investigador(const std::string &m_ORCID,
                            const std::string &m_Nombre,
@@ -11,7 +13,7 @@ Investigador::~Investigador()
 {
 }
 
-std::string Investigador::getNombre()
+std::string Investigador::getNombre() const
 {
 	return m_Nombre;
 }
@@ -23,11 +25,23 @@ std::string Investigador::toString()
 
 std::set<std::string> Investigador::listarPublicaciones(DTFecha &desde, std::string palabra) {
     std::set<std::string> publicaciones;
-    for(Publicacion* p : m_Publicaciones) {
-        DTRefer refer = p->getDT();
+    std::vector<Publicacion*>::iterator it = m_Publicaciones.begin();
+    for(; it != m_Publicaciones.end(); it++) 
+    {
+        DTRefer refer = (*it)->getDT();
         if(refer.getFecha() < desde) continue;
-        if(p->contienePalabra(palabra)) 
+        if((*it)->contienePalabra(palabra)) 
             publicaciones.insert(refer.getTitulo());
     }
     return publicaciones;
+}
+
+std::string Investigador::getORCID() const
+{
+	return m_ORCID;
+}
+
+std::string Investigador::getInstitucion() const
+{
+	return m_Institucion;
 }

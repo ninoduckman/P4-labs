@@ -12,11 +12,8 @@ class DTFecha
 	int getMes() const;
 	int getAnio() const;
 	bool operator==(const DTFecha &otra) const;
-	
 	bool operator!=(const DTFecha &otra) const;
-	
 	bool operator<(const DTFecha &otra) const;
-	
 	bool operator>(const DTFecha &otra) const;
 
   private:

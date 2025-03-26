@@ -4,9 +4,10 @@ PaginaWeb::PaginaWeb() : m_URL(""), m_ContenidoExtraido("")
 {
 }
 
-PaginaWeb::PaginaWeb(const std::string &m_URL,
-                     const std::string &m_ContenidoExtraido)
-    : m_URL(m_URL), m_ContenidoExtraido(m_ContenidoExtraido)
+PaginaWeb::PaginaWeb(const std::string &doi, const std::string &titulo,
+		const DTFecha &fecha, const std::string &url,
+		const std::string &contenidoExtraido)
+    : Publicacion(doi, titulo, fecha), m_URL(url), m_ContenidoExtraido(contenidoExtraido)
 {
 }
 

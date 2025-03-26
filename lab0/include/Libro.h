@@ -7,8 +7,7 @@
 class Libro : public Publicacion
 {
   public:
-	// Constructores (Agregue el doi, título y fecha al constructor
-	// con parámetros)
+	// Constructores
 	Libro();
 	Libro(const std::string &doi, const std::string &titulo,
 	      const DTFecha &fecha, const std::string &editorial,
@@ -19,14 +18,13 @@ class Libro : public Publicacion
 
 	// Operación polimórfica (saque el virtual porque ya estaba en la
 	// Publicacion)
-	bool contienePalabra(const std::string &palabra) override;
+	bool contienePalabra(const std::string &palabra);
 
 	// getters
 	std::string getEditorial() const;
 	std::set<std::string> getPalabrasDestacadas() const;
 
-	// setters (creo que en ningun momento dice algo de modificar algo de un
-	// libro pero los agregue porque ustdes tmb lo hicieron lol)
+	// setters
 	void setEditorial(const std::string &editorial);
 	void setPalabrasDestacadas(const std::set<std::string> &palabras);
 
