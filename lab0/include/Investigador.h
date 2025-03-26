@@ -2,6 +2,7 @@
 #define INVESTIGADOR_H
 
 #include "DTFecha.h"
+#include "Publicacion.h"
 #include "Utils.h"
 
 class Publicacion;
@@ -19,6 +20,7 @@ class Investigador
 	std::string getNombre() const;
 	std::string getORCID() const;
 	std::string getInstitucion() const;
+	void AgregarPublicacion(Publicacion *publicacion);
 
   private:
 	std::string m_ORCID;

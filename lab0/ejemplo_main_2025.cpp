@@ -1,5 +1,6 @@
 #include <Publicacion.h>
 #include <ArticuloRevista.h>
+#include <PaginaWeb.h>
 #include <Investigador.h>
 #include <DTRefer.h>
 #include <DTFecha.h>
@@ -71,6 +72,13 @@ void parte_b()
 
 void parte_c()
 {
+	coleccion_guardarPublicacion(new PaginaWeb(
+		"10.3456/ghi789",
+		"Diagramas para Principiantes",
+		{20, 10, 2024},
+		"http://www.umlparaprincipiantes.com/",
+		"En esta pagina web se presenta una gui completa sobre los diagramas UML, abordando los diagramas de casos de uso, de clases, de secuencia y de actividades."
+	));
 }
 
 void parte_d()
@@ -90,8 +98,21 @@ void parte_f()
 {
 }
 
+void VincularPares(Investigador* investigador, Publicacion* publicacion) {
+	publicacion->AgregarInvestigador(investigador);
+	investigador->AgregarPublicacion(publicacion);
+}
 void parte_g()
 {
+	Investigador* investigador;
+	Publicacion* publicacion;
+	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"), coleccion_getPublicacion("10.1234/abc123"));
+	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"), coleccion_getPublicacion("10.4567/jkl012"));
+	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"), coleccion_getPublicacion("10.5678/mno345"));
+	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"), coleccion_getPublicacion("10.3456/ghi789"));
+	VincularPares(coleccion_getInvestigador("0000-0001-8765-4321"), coleccion_getPublicacion("10.1234/abc123"));
+	VincularPares(coleccion_getInvestigador("0000-0001-8765-4321"), coleccion_getPublicacion("10.2345/def456"));
+	VincularPares(coleccion_getInvestigador("0000-0001-8765-4321"), coleccion_getPublicacion("10.4567/jkl012"));
 }
 
 void parte_h()
