@@ -19,7 +19,7 @@ class ArticuloRevista : public Publicacion
 	void setRevista(const std::string &revista);
 	void setExtracto(const std::string &extracto);
 
-	virtual bool contienePalabra(const std::string &palabra) override;
+	virtual bool contienePalabra(const std::string &palabra);
 
   private:
 	std::string m_Revista;

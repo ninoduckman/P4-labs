@@ -12,7 +12,7 @@ class PaginaWeb : public Publicacion
 	          const DTFecha &fecha, const std::string &url,
 	          const std::string &contenidoExtraido);
 	~PaginaWeb();
-	virtual bool contienePalabra(const std::string &palabra) override;
+	virtual bool contienePalabra(const std::string &palabra);
 
 	std::string getURL() const;
 	std::string getContenidoExtraido() const;

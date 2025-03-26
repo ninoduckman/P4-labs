@@ -16,7 +16,7 @@ class Publicacion
 	Publicacion();
 	Publicacion(const std::string &doi, const std::string &titulo,
 	            const DTFecha &fecha);
-	~Publicacion();
+	virtual ~Publicacion();
 	DTRefer getDT();
 	void AgregarInvestigador(Investigador *investigador);
 	virtual bool contienePalabra(const std::string &palabra) = 0;

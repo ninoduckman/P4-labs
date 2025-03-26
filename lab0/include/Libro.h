@@ -19,7 +19,7 @@ class Libro : public Publicacion
 
 	// Operación polimórfica (saque el virtual porque ya estaba en la
 	// Publicacion)
-	bool contienePalabra(const std::string &palabra) override;
+	bool contienePalabra(const std::string &palabra);
 
 	// getters
 	std::string getEditorial() const;

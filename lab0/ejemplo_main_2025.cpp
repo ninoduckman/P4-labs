@@ -1,5 +1,8 @@
 #include <Publicacion.h>
 #include <ArticuloRevista.h>
+#include <Investigador.h>
+#include <DTRefer.h>
+#include <DTFecha.h>
 
 #include <iostream>
 #include <list>
@@ -42,15 +45,24 @@ Publicacion *coleccion_getPublicacion(std::string DOI)
 
 void parte_a()
 {
-	ArticuloRevista *rev = new ArticuloRevista(
-		"10.1234",
+	coleccion_guardarPublicacion(new ArticuloRevista(
+		"10.1234/abc123",
 		"Fundamentos de POO",
-		{15, 5 ,2023},
+		{15, 5, 2023},
 		"Programacion Avanzada",
 		"Introduccion a los principios fundamentales de la programacion "
 		"orientada a objetos, explicando sus conceptos clave como clases, "
 		"objetos, herencia y polimorfismo."
-	);
+	));
+	coleccion_guardarPublicacion(new ArticuloRevista(
+		"10.4567/jkl012",
+		"Utilidad de diagramas UML",
+		{10, 2, 2024},
+		"Modelado de Software",
+		"Ejercicio empirico de como los diagramas UML pueden ayudar en el "
+		"proceso y documentacion de software, cubriendo los tipos mas "
+		"importantes utilizados, como clases."
+	));
 }
 
 void parte_b()
@@ -90,6 +102,10 @@ void parte_j()
 }
 
 void parte_k()
+{
+}
+
+void cleanUp()
 {
 }
 
