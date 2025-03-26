@@ -21,7 +21,7 @@ std::string Investigador::toString()
     return m_ORCID + "->" + m_Nombre + "/" + m_Institucion;
 }
 
-std::set<std::string> Investigador::listarPublicaciones(DTFecha desde, std::string palabra) {
+std::set<std::string> Investigador::listarPublicaciones(DTFecha &desde, std::string palabra) {
     std::set<std::string> publicaciones;
     for(Publicacion* p : m_Publicaciones) {
         DTRefer refer = p->getDT();

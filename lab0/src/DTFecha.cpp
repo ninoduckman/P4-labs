@@ -39,11 +39,9 @@ bool DTFecha::operator!=(const DTFecha &otra) const {
 }
 
 bool DTFecha::operator<(const DTFecha &otra) const {
-
 	if (getAnio() != otra.getAnio()) return getAnio() < otra.getAnio();
 	if (getMes() != otra.getMes()) return getMes() < otra.getMes();
 	return getDia() < otra.getDia();
-
 }
 
 bool DTFecha::operator>(const DTFecha &otra) const {
