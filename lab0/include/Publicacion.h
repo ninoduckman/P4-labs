@@ -14,12 +14,14 @@ class Publicacion
 {
   public:
 	Publicacion();
-	Publicacion(const std::string &m_DOI, const std::string &m_Titulo,
-	            DTFecha m_fecha);
+	Publicacion(const std::string &doi, const std::string &titulo,
+	            const DTFecha &fecha);
 	~Publicacion();
 	DTRefer getDT();
 	void AgregarInvestigador(Investigador *investigador);
 	virtual bool contienePalabra(const std::string &palabra) = 0;
+
+	std::string getDOI() const;
 
   private:
 	std::string m_DOI;

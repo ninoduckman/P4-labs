@@ -8,8 +8,9 @@ class ArticuloRevista : public Publicacion
 {
   public:
 	ArticuloRevista();
-	ArticuloRevista(const std::string &m_Revista,
-	                const std::string &m_Extracto);
+	ArticuloRevista(const std::string &doi, const std::string &titulo,
+	                const DTFecha &fecha, const std::string &revista,
+	                const std::string &extracto);
 	~ArticuloRevista();
 
 	std::string getRevista() const;

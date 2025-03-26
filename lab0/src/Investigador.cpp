@@ -11,7 +11,17 @@ Investigador::~Investigador()
 {
 }
 
-std::string Investigador::getNombre()
+std::string Investigador::getNombre() const
 {
 	return m_Nombre;
+}
+
+std::string Investigador::getORCID() const
+{
+	return m_ORCID;
+}
+
+std::string Investigador::getInstitucion() const
+{
+	return m_Institucion;
 }

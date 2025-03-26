@@ -4,9 +4,12 @@ ArticuloRevista::ArticuloRevista() : m_Revista(""), m_Extracto("")
 {
 }
 
-ArticuloRevista::ArticuloRevista(const std::string &m_Revista,
-                                 const std::string &m_Extracto)
-    : m_Revista(m_Revista), m_Extracto(m_Extracto)
+ArticuloRevista::ArticuloRevista(const std::string &doi,
+                                 const std::string &titulo,
+                                 const DTFecha &fecha,
+                                 const std::string &revista,
+                                 const std::string &extracto)
+    : Publicacion(doi, titulo, fecha), m_Revista(revista), m_Extracto(extracto)
 {
 }
 

@@ -8,8 +8,9 @@ class Libro : public Publicacion
 {
   public:
 	Libro();
-	Libro(const std::string &m_Editorial,
-	      const std::string &m_PalabrasDestacadas);
+	Libro(const std::string &doi, const std::string &titulo,
+	      const DTFecha &fecha, const std::string &editorial,
+	      const std::string &palabrasDestacadas);
 	~Libro();
 	virtual bool contienePalabra(const std::string &palabra) override;
 
