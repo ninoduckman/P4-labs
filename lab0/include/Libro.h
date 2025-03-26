@@ -16,8 +16,7 @@ class Libro : public Publicacion
 	// Destructor
 	~Libro();
 
-	// Operación polimórfica (saque el virtual porque ya estaba en la
-	// Publicacion)
+	// Operación polimórfica
 	bool contienePalabra(const std::string &palabra);
 
 	// getters
