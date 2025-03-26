@@ -1,3 +1,5 @@
 lab0/.vscode
 lab0/build/*
 lab0/.cache
+*.o
+*.exe
