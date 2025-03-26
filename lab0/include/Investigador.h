@@ -3,6 +3,7 @@
 
 #include "Utils.h"
 #include "DTFecha.h"
+#include "Publicacion.h"
 
 class Publicacion;
 
