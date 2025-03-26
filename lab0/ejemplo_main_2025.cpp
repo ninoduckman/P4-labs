@@ -48,7 +48,7 @@ void parte_a()
 	coleccion_guardarPublicacion(new ArticuloRevista(
 		"10.1234/abc123",
 		"Fundamentos de POO",
-		{15, 5, 2023},
+		DTFecha(15, 5, 2023),
 		"Programacion Avanzada",
 		"Introduccion a los principios fundamentales de la programacion "
 		"orientada a objetos, explicando sus conceptos clave como clases, "
@@ -57,7 +57,7 @@ void parte_a()
 	coleccion_guardarPublicacion(new ArticuloRevista(
 		"10.4567/jkl012",
 		"Utilidad de diagramas UML",
-		{10, 2, 2024},
+		DTFecha(10, 2, 2024),
 		"Modelado de Software",
 		"Ejercicio empirico de como los diagramas UML pueden ayudar en el "
 		"proceso y documentacion de software, cubriendo los tipos mas "
@@ -104,6 +104,13 @@ void parte_i()
 
 void parte_j()
 {
+	Investigador *inv = coleccion_getInvestigador("0000-0003-1234-5678");
+	std::set<std::string> pbs = inv->listarPublicaciones(DTFecha(1,1,2024), "UML");
+	std::set<std::string>::iterator it = pbs.begin();
+	for (; it != pbs.end(); it++)
+	{
+		std::cout << (*it) << std::endl;
+	}
 }
 
 void parte_k()

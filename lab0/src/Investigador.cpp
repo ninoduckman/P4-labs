@@ -23,7 +23,7 @@ std::string Investigador::toString()
     return m_ORCID + "->" + m_Nombre + "/" + m_Institucion;
 }
 
-std::set<std::string> Investigador::listarPublicaciones(DTFecha &desde, std::string palabra) {
+std::set<std::string> Investigador::listarPublicaciones(const DTFecha &desde, std::string palabra) {
     std::set<std::string> publicaciones;
     std::vector<Publicacion*>::iterator it = m_Publicaciones.begin();
     for(; it != m_Publicaciones.end(); it++) 

@@ -13,7 +13,7 @@ class Investigador
 	             const std::string &m_Institucion);
 	~Investigador();
 	std::string toString();
-	std::set<std::string> listarPublicaciones(DTFecha &desde,
+	std::set<std::string> listarPublicaciones(const DTFecha &desde,
 	                                          std::string palabra);
 
 	std::string getNombre() const;
