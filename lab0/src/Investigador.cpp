@@ -36,6 +36,10 @@ std::set<std::string> Investigador::listarPublicaciones(DTFecha &desde, std::str
     return publicaciones;
 }
 
+void Investigador::AgregarPublicacion(Publicacion *publicacion) {
+	m_Publicaciones.push_back(publicacion);
+}
+
 std::string Investigador::getORCID() const
 {
 	return m_ORCID;
