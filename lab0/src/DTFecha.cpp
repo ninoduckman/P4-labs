@@ -26,19 +26,19 @@ std::ostream &operator<<(std::ostream &os, const DTFecha &fecha)
 	return os;
 }
 
-bool operator==(const DTFecha &otra) const {
+bool DTFecha::operator==(const DTFecha &otra) const {
 
 	return getDia() == otra.getDia() && getMes() == otra.getMes() && getAnio() == otra.getAnio();
 
 }
 
-bool operator!=(const DTFecha &otra) const {
+bool DTFecha::operator!=(const DTFecha &otra) const {
 
 	return !(*this == otra);
 
 }
 
-bool operator<(const DTFecha &otra) const {
+bool DTFecha::operator<(const DTFecha &otra) const {
 
 	if (getAnio() != otra.getAnio()) return getAnio() < otra.getAnio();
 	if (getMes() != otra.getMes()) return getMes() < otra.getMes();
@@ -46,7 +46,7 @@ bool operator<(const DTFecha &otra) const {
 
 }
 
-bool operator>(const DTFecha &otra) const {
+bool DTFecha::operator>(const DTFecha &otra) const {
 
 	return otra < *this;
 

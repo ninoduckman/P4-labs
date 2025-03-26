@@ -16,16 +16,16 @@ class DTFecha
 	int m_Dia;
 	int m_Mes;
 	int m_Anio;
+
+	bool operator==(const DTFecha &otra) const;
+	
+	bool operator!=(const DTFecha &otra) const;
+	
+	bool operator<(const DTFecha &otra) const;
+	
+	bool operator>(const DTFecha &otra) const;
 };
 
 std::ostream &operator<<(std::ostream &os, const DTFecha &fecha);
-
-bool operator==(const DTFecha &otra) const;
-
-bool operator!=(const DTFecha &otra) const;
-
-bool operator<(const DTFecha &otra) const;
-
-bool operator>(const DTFecha &otra) const;
 
 #endif
