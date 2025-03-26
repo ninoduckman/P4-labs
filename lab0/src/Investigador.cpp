@@ -15,3 +15,8 @@ std::string Investigador::getNombre()
 {
 	return m_Nombre;
 }
+
+std::string Investigador::toString()
+{
+    return m_ORCID + "->" + m_Nombre + "/" + m_Institucion;
+}
