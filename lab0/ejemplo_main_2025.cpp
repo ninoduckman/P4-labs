@@ -75,6 +75,11 @@ void parte_c()
 
 void parte_d()
 {
+	std::list<Publicacion*>::iterator it = publicaciones.begin();
+	for (; it != publicaciones.end(); it++)
+	{
+		std::cout << (*it)->getDT() << std::endl;
+	}
 }
 
 void parte_e()
@@ -103,10 +108,22 @@ void parte_j()
 
 void parte_k()
 {
+	std::list<Publicacion*>::iterator it = publicaciones.begin();
+	for (; it != publicaciones.end(); it++)
+	{
+		std::cout << (*it)->getDT() << std::endl;
+	}
 }
 
 void cleanUp()
 {
+	std::list<Publicacion*>::iterator it = publicaciones.begin();
+	for (; it != publicaciones.end(); it++)
+		delete (*it);
+
+	std::list<Investigador*>::iterator it2 = investigadores.begin();
+	for (; it2 != investigadores.end(); it2++)
+		delete (*it2);
 }
 
 int main()
