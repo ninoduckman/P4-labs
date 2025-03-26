@@ -68,6 +68,9 @@ void parte_a()
 
 void parte_b()
 {
+	coleccion_guardarPublicacion(new Libro("10.2345/def456","Patrones de Diseno en c++",{20, 8, 2022},"Software Design",{"Diseno", "OOP", "Class"}));
+
+	coleccion_guardarPublicacion(new Libro("10.5678/mno345","Guia de UML",{20, 8, 2022},"IEEE",{"Diagramas", "UML", "Software","Modelado"}));
 }
 
 void parte_c()
