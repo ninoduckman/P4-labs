@@ -33,12 +33,13 @@ std::ostream &operator<<(std::ostream &os, const DTRefer &refer)
 
 	bool primer = true;
 	std::set<std::string> autores = refer.getAutores();
-	for (std::string autor : autores)
+	std::set<std::string>::iterator it = autores.begin();
+	for (; it != autores.end(); it++)
 	{
 		if (!primer)
 			os << ",";
 		primer = false;
-		os << autor;
+		os << *it;
 	}
 
 	return os;

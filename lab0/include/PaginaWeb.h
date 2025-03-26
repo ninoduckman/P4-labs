@@ -8,9 +8,11 @@ class PaginaWeb : public Publicacion
 {
   public:
 	PaginaWeb();
-	PaginaWeb(const std::string &m_URL, const std::string &m_ContenidoExtraido);
+	PaginaWeb(const std::string &doi, const std::string &titulo,
+	          const DTFecha &fecha, const std::string &url,
+	          const std::string &contenidoExtraido);
 	~PaginaWeb();
-	virtual bool contienePalabra(const std::string &palabra) override;
+	virtual bool contienePalabra(const std::string &palabra);
 
 	std::string getURL() const;
 	std::string getContenidoExtraido() const;
