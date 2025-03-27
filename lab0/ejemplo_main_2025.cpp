@@ -67,27 +67,27 @@ void parte_b()
 	{
 		std::string keywords[] = {"Diseno", "OOP", "Class"};
 		std::set<std::string> set(keywords, keywords + 3);
-		coleccion_guardarPublicacion(new Libro(
-		"10.2345/def456", "Patrones de Diseno en c++", DTFecha(20, 8, 2022),
-		"Software Design", set));
+		coleccion_guardarPublicacion(
+		    new Libro("10.2345/def456", "Patrones de Diseno en c++",
+		              DTFecha(20, 8, 2022), "Software Design", set));
 	}
 	{
 		std::string keywords[] = {"Diseno", "OOP", "Class"};
 		std::set<std::string> set(keywords, keywords + 3);
-		coleccion_guardarPublicacion(
-		new Libro("10.5678/mno345", "Guia de UML", DTFecha(20, 8, 2022), "IEEE",
-			set));
+		coleccion_guardarPublicacion(new Libro("10.5678/mno345", "Guia de UML",
+		                                       DTFecha(20, 8, 2022), "IEEE",
+		                                       set));
 	}
 }
 
 void parte_c()
 {
-	coleccion_guardarPublicacion(
-	    new PaginaWeb("10.3456/ghi789", "Diagramas para Principiantes",
-	                  DTFecha(20, 10, 2024), "http://www.umlparaprincipiantes.com/",
-	                  "En esta pagina web se presenta una gui completa sobre "
-	                  "los diagramas UML, abordando los diagramas de casos de "
-	                  "uso, de clases, de secuencia y de actividades."));
+	coleccion_guardarPublicacion(new PaginaWeb(
+	    "10.3456/ghi789", "Diagramas para Principiantes", DTFecha(20, 10, 2024),
+	    "http://www.umlparaprincipiantes.com/",
+	    "En esta pagina web se presenta una gui completa sobre "
+	    "los diagramas UML, abordando los diagramas de casos de "
+	    "uso, de clases, de secuencia y de actividades."));
 }
 
 void parte_d()
@@ -101,18 +101,29 @@ void parte_d()
 
 void parte_e()
 {
+	coleccion_guardarInvestigador(new Investigador(
+	    "0000-0003-1234-5678", "Carla Oliveri", "Universidad de la Republica"));
+	coleccion_guardarInvestigador(new Investigador(
+	    "0000-0001-8765-4321", "Alberto Santos", "Instituto Tecnico"));
 }
 
 void parte_f()
 {
+	for (std::list<Investigador *>::iterator it = investigadores.begin();
+	     it != investigadores.end(); ++it)
+	{
+		std::cout << (*it)->toString() << std::endl;
+	}
 }
 
 void VincularPares(Investigador *investigador, Publicacion *publicacion)
 {
-	if (investigador == NULL || publicacion == NULL) return;
+	if (investigador == NULL || publicacion == NULL)
+		return;
 	publicacion->AgregarInvestigador(investigador);
 	investigador->AgregarPublicacion(publicacion);
 }
+
 void parte_g()
 {
 	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"),
@@ -133,6 +144,14 @@ void parte_g()
 
 void parte_h()
 {
+	std::set<std::string> publicaciones =
+	    coleccion_getInvestigador("0000-0003-1234-5678")
+	        ->listarPublicaciones(DTFecha(10, 12, 2023), "UML");
+	std::set<std::string>::iterator it = publicaciones.begin();
+	for (; it != publicaciones.end(); it++)
+	{
+		std::cout << (*it) << std::endl;
+	}
 }
 
 void parte_i()
@@ -149,7 +168,8 @@ void parte_i()
 void parte_j()
 {
 	Investigador *inv = coleccion_getInvestigador("0000-0003-1234-5678");
-	if (inv == NULL) return;
+	if (inv == NULL)
+		return;
 	std::set<std::string> pbs =
 	    inv->listarPublicaciones(DTFecha(1, 1, 2020), "UML");
 	std::set<std::string>::iterator it = pbs.begin();
