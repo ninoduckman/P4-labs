@@ -117,6 +117,12 @@ void parte_g()
 
 void parte_h()
 {
+	std::set<std::string> publicaciones = coleccion_getInvestigador("0000-0003-1234-5678")->listarPublicaciones(DTFecha(10,12,2023),"UML");
+    std::set<std::string>::iterator it = publicaciones.begin();
+	for(; it != publicaciones.end(); it++) 
+    {
+		std::cout << (*it) << std::endl;
+	}
 }
 
 void parte_i()
