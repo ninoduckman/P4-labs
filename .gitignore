@@ -1,4 +1,4 @@
-lab0/.vscode
+.vscode
 lab0/build/*
 lab0/.cache
 *.o

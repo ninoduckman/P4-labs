@@ -21,6 +21,7 @@ class Investigador
 	std::string getORCID() const;
 	std::string getInstitucion() const;
 	void AgregarPublicacion(Publicacion *publicacion);
+	void eliminarPublicacion(Publicacion *publicacion);
 
   private:
 	std::string m_ORCID;

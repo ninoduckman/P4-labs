@@ -1,13 +1,15 @@
-#include <Publicacion.h>
 #include <ArticuloRevista.h>
-#include <PaginaWeb.h>
-#include <Investigador.h>
-#include <DTRefer.h>
 #include <DTFecha.h>
+#include <DTRefer.h>
+#include <Investigador.h>
+#include <Libro.h>
+#include <PaginaWeb.h>
+#include <Publicacion.h>
 
 #include <iostream>
 #include <list>
 #include <map>
+#include <set>
 
 std::list<Publicacion *> publicaciones;
 std::map<std::string, Publicacion *> map_publicaciones;
@@ -47,46 +49,50 @@ Publicacion *coleccion_getPublicacion(std::string DOI)
 void parte_a()
 {
 	coleccion_guardarPublicacion(new ArticuloRevista(
-		"10.1234/abc123",
-		"Fundamentos de POO",
-		DTFecha(15, 5, 2023),
-		"Programacion Avanzada",
-		"Introduccion a los principios fundamentales de la programacion "
-		"orientada a objetos, explicando sus conceptos clave como clases, "
-		"objetos, herencia y polimorfismo."
-	));
+	    "10.1234/abc123", "Fundamentos de POO", DTFecha(15, 5, 2023),
+	    "Programacion Avanzada",
+	    "Introduccion a los principios fundamentales de la programacion "
+	    "orientada a objetos, explicando sus conceptos clave como clases, "
+	    "objetos, herencia y polimorfismo."));
 	coleccion_guardarPublicacion(new ArticuloRevista(
-		"10.4567/jkl012",
-		"Utilidad de diagramas UML",
-		DTFecha(10, 2, 2024),
-		"Modelado de Software",
-		"Ejercicio empirico de como los diagramas UML pueden ayudar en el "
-		"proceso y documentacion de software, cubriendo los tipos mas "
-		"importantes utilizados, como clases."
-	));
+	    "10.4567/jkl012", "Utilidad de diagramas UML", DTFecha(10, 2, 2024),
+	    "Modelado de Software",
+	    "Ejercicio empirico de como los diagramas UML pueden ayudar en el "
+	    "proceso y documentacion de software, cubriendo los tipos mas "
+	    "importantes utilizados, como clases."));
 }
 
 void parte_b()
 {
-	coleccion_guardarPublicacion(new Libro("10.2345/def456","Patrones de Diseno en c++",{20, 8, 2022},"Software Design",{"Diseno", "OOP", "Class"}));
-
-	coleccion_guardarPublicacion(new Libro("10.5678/mno345","Guia de UML",{20, 8, 2022},"IEEE",{"Diagramas", "UML", "Software","Modelado"}));
+	{
+		std::string keywords[] = {"Diseno", "OOP", "Class"};
+		std::set<std::string> set(keywords, keywords + 3);
+		coleccion_guardarPublicacion(new Libro(
+		"10.2345/def456", "Patrones de Diseno en c++", DTFecha(20, 8, 2022),
+		"Software Design", set));
+	}
+	{
+		std::string keywords[] = {"Diseno", "OOP", "Class"};
+		std::set<std::string> set(keywords, keywords + 3);
+		coleccion_guardarPublicacion(
+		new Libro("10.5678/mno345", "Guia de UML", DTFecha(20, 8, 2022), "IEEE",
+			set));
+	}
 }
 
 void parte_c()
 {
-	coleccion_guardarPublicacion(new PaginaWeb(
-		"10.3456/ghi789",
-		"Diagramas para Principiantes",
-		{20, 10, 2024},
-		"http://www.umlparaprincipiantes.com/",
-		"En esta pagina web se presenta una gui completa sobre los diagramas UML, abordando los diagramas de casos de uso, de clases, de secuencia y de actividades."
-	));
+	coleccion_guardarPublicacion(
+	    new PaginaWeb("10.3456/ghi789", "Diagramas para Principiantes",
+	                  DTFecha(20, 10, 2024), "http://www.umlparaprincipiantes.com/",
+	                  "En esta pagina web se presenta una gui completa sobre "
+	                  "los diagramas UML, abordando los diagramas de casos de "
+	                  "uso, de clases, de secuencia y de actividades."));
 }
 
 void parte_d()
 {
-	std::list<Publicacion*>::iterator it = publicaciones.begin();
+	std::list<Publicacion *>::iterator it = publicaciones.begin();
 	for (; it != publicaciones.end(); it++)
 	{
 		std::cout << (*it)->getDT() << std::endl;
@@ -101,21 +107,28 @@ void parte_f()
 {
 }
 
-void VincularPares(Investigador* investigador, Publicacion* publicacion) {
+void VincularPares(Investigador *investigador, Publicacion *publicacion)
+{
+	if (investigador == NULL || publicacion == NULL) return;
 	publicacion->AgregarInvestigador(investigador);
 	investigador->AgregarPublicacion(publicacion);
 }
 void parte_g()
 {
-	Investigador* investigador;
-	Publicacion* publicacion;
-	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"), coleccion_getPublicacion("10.1234/abc123"));
-	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"), coleccion_getPublicacion("10.4567/jkl012"));
-	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"), coleccion_getPublicacion("10.5678/mno345"));
-	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"), coleccion_getPublicacion("10.3456/ghi789"));
-	VincularPares(coleccion_getInvestigador("0000-0001-8765-4321"), coleccion_getPublicacion("10.1234/abc123"));
-	VincularPares(coleccion_getInvestigador("0000-0001-8765-4321"), coleccion_getPublicacion("10.2345/def456"));
-	VincularPares(coleccion_getInvestigador("0000-0001-8765-4321"), coleccion_getPublicacion("10.4567/jkl012"));
+	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"),
+	              coleccion_getPublicacion("10.1234/abc123"));
+	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"),
+	              coleccion_getPublicacion("10.4567/jkl012"));
+	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"),
+	              coleccion_getPublicacion("10.5678/mno345"));
+	VincularPares(coleccion_getInvestigador("0000-0003-1234-5678"),
+	              coleccion_getPublicacion("10.3456/ghi789"));
+	VincularPares(coleccion_getInvestigador("0000-0001-8765-4321"),
+	              coleccion_getPublicacion("10.1234/abc123"));
+	VincularPares(coleccion_getInvestigador("0000-0001-8765-4321"),
+	              coleccion_getPublicacion("10.2345/def456"));
+	VincularPares(coleccion_getInvestigador("0000-0001-8765-4321"),
+	              coleccion_getPublicacion("10.4567/jkl012"));
 }
 
 void parte_h()
@@ -124,12 +137,21 @@ void parte_h()
 
 void parte_i()
 {
+	Publicacion *pub = coleccion_getPublicacion("10.4567/jkl012");
+	std::set<std::string> autores = pub->getDT().getAutores();
+	std::list<Investigador *>::iterator it = investigadores.begin();
+	for (; it != investigadores.end(); it++)
+		(*it)->eliminarPublicacion(pub);
+	coleccion_eliminarPublicacion(pub);
+	delete pub;
 }
 
 void parte_j()
 {
 	Investigador *inv = coleccion_getInvestigador("0000-0003-1234-5678");
-	std::set<std::string> pbs = inv->listarPublicaciones(DTFecha(1,1,2024), "UML");
+	if (inv == NULL) return;
+	std::set<std::string> pbs =
+	    inv->listarPublicaciones(DTFecha(1, 1, 2020), "UML");
 	std::set<std::string>::iterator it = pbs.begin();
 	for (; it != pbs.end(); it++)
 	{
@@ -139,7 +161,7 @@ void parte_j()
 
 void parte_k()
 {
-	std::list<Publicacion*>::iterator it = publicaciones.begin();
+	std::list<Publicacion *>::iterator it = publicaciones.begin();
 	for (; it != publicaciones.end(); it++)
 	{
 		std::cout << (*it)->getDT() << std::endl;
@@ -148,11 +170,11 @@ void parte_k()
 
 void cleanUp()
 {
-	std::list<Publicacion*>::iterator it = publicaciones.begin();
+	std::list<Publicacion *>::iterator it = publicaciones.begin();
 	for (; it != publicaciones.end(); it++)
 		delete (*it);
 
-	std::list<Investigador*>::iterator it2 = investigadores.begin();
+	std::list<Investigador *>::iterator it2 = investigadores.begin();
 	for (; it2 != investigadores.end(); it2++)
 		delete (*it2);
 }

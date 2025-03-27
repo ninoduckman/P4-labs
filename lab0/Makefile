@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -std=c++98 -Iinclude
+CXXFLAGS = -Wall -std=c++98 -Iinclude -g
 
 SRCS = src/ArticuloRevista.cpp src/DTFecha.cpp src/DTRefer.cpp
 SRCS := $(SRCS) src/Investigador.cpp src/Libro.cpp src/PaginaWeb.cpp src/Publicacion.cpp
