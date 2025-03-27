@@ -96,10 +96,19 @@ void parte_d()
 
 void parte_e()
 {
+    coleccion_guardarInvestigadores(new Investigador inv1("0000-0003-1234-5678", "Carla Oliveri", "Universidad de la Republica"));
+    coleccion_guardarInvestigadores(new Investigador inv2("0000-0001-8765-4321", "Alberto Santos", "Instituto Tecnico"));
+    return 0;
+
 }
 
 void parte_f()
 {
+	std::set<Investigador*> investigadores = coleccion_obtenerInvestigadores();
+	for (std::set<Investigador*>::iterator it = investigadores.begin(); it != investigadores.end(); ++it)
+	{
+		std::cout << (*it)->toString() << std::endl;
+	}
 }
 
 void VincularPares(Investigador* investigador, Publicacion* publicacion) {
@@ -107,6 +116,7 @@ void VincularPares(Investigador* investigador, Publicacion* publicacion) {
 	publicacion->AgregarInvestigador(investigador);
 	investigador->AgregarPublicacion(publicacion);
 }
+
 void parte_g()
 {
 	Investigador* investigador;
