@@ -69,9 +69,9 @@ void parte_a()
 
 void parte_b()
 {
-	coleccion_guardarPublicacion(new Libro("10.2345/def456","Patrones de Diseno en c++",{20, 8, 2022},"Software Design",{"Diseno", "OOP", "Class"}));
+	coleccion_guardarPublicacion(new Libro("10.2345/def456","Patrones de Diseno en c++",DTFecha(20, 8, 2022),"Software Design",{"Diseno", "OOP", "Class"}));
 
-	coleccion_guardarPublicacion(new Libro("10.5678/mno345","Guia de UML",{20, 8, 2022},"IEEE",{"Diagramas", "UML", "Software","Modelado"}));
+	coleccion_guardarPublicacion(new Libro("10.5678/mno345","Guia de UML",DTFecha(20, 8, 2022),"IEEE",{"Diagramas", "UML", "Software","Modelado"}));
 }
 
 void parte_c()
@@ -79,7 +79,7 @@ void parte_c()
 	coleccion_guardarPublicacion(new PaginaWeb(
 		"10.3456/ghi789",
 		"Diagramas para Principiantes",
-		{20, 10, 2024},
+		DTFecha(20, 10, 2024),
 		"http://www.umlparaprincipiantes.com/",
 		"En esta pagina web se presenta una gui completa sobre los diagramas UML, abordando los diagramas de casos de uso, de clases, de secuencia y de actividades."
 	));
